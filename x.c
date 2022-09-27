@@ -994,6 +994,8 @@ xloadfonts(const char *fontstr, double fontsize)
 	if (!pattern)
 		die("can't open font %s\n", fontstr);
 
+	FcPatternAddBool(pattern, FC_COLOR, FcFalse);
+
 	if (fontsize > 1) {
 		FcPatternDel(pattern, FC_PIXEL_SIZE);
 		FcPatternDel(pattern, FC_SIZE);
